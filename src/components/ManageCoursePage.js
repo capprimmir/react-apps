@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CourseForm from './CourseForm';
+import * as courseApi from '../api/courseApi';
 
 const ManageCoursePage = (props) => {
   //hold course data
@@ -19,10 +20,25 @@ const ManageCoursePage = (props) => {
     setCourse(updatedCourse);
 
   }
+
+  function handleSubmit(event) {
+    //prevent the event sent to the server. Instead handle in client
+    event.preventDefault();
+
+    //all func in api return a promise
+    courseApi.saveCourse(course).then( () => {
+      props.history.push("/courses");
+    });
+
+  }
+
   return (
     <>
       <h2>Manage Course</h2>
-      <CourseForm course={course} onChange={handleChange}/>
+      <CourseForm 
+        course={course} 
+        onChange={handleChange} 
+        onSubmit={handleSubmit}/>
     </>
   )
 }

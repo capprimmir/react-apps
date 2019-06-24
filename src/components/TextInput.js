@@ -13,7 +13,7 @@ function TextInput (props) {
 
   return (
     <div className="formGroup">
-        <label htmlFor={props.id}>{props.id}</label>
+        <label htmlFor={props.id}>{props.label}</label>
         <div className="field">
           <input
             id={props.id}
