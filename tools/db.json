@@ -72,19 +72,11 @@
     },
     {
       "id": 11,
-      "slug": "new",
-      "title": "new",
+      "slug": "new-3",
+      "title": "new 3",
       "authorId": 1,
-      "category": "test",
-      "createdAt": 1561383041449
-    },
-    {
-      "id": 12,
-      "slug": "jdvoasjd",
-      "title": "jdvoasjd",
-      "authorId": 1,
-      "category": "asdfads",
-      "createdAt": 1561383194315
+      "category": "dfadf",
+      "createdAt": 1561383793497
     }
   ],
   "authors": [
