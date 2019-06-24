@@ -9,10 +9,10 @@ function TextInput (props) {
   let wrapperClass = "form-group";
   if (props.error.length > 0) {
     wrapperClass += " has-error";
-  }
+}
 
   return (
-    <div className="formGroup">
+    <div className={wrapperClass}>
         <label htmlFor={props.id}>{props.label}</label>
         <div className="field">
           <input
