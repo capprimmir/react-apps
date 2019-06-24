@@ -1,5 +1,6 @@
 import React from 'react';
 import TextInput from './TextInput';
+import PropTypes from 'prop-types';
 
 function CourseForm(props) {
   return (
@@ -13,7 +14,7 @@ function CourseForm(props) {
         error={props.errors.title}       
       />
 
-      <div className="formGroup">
+      <div className="form-group">
         <label htmlFor="author">Author</label>
         <div className="field">
           <select
@@ -40,7 +41,6 @@ function CourseForm(props) {
         onChange={props.onChange}
         value={props.course.category} 
         error={props.errors.category}       
-
       />
 
       <div className="formGroup">
@@ -49,5 +49,12 @@ function CourseForm(props) {
     </form>
   );
 }
+
+CourseForm.propTypes = {
+  course: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
+};
 
 export default CourseForm;

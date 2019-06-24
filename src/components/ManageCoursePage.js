@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CourseForm from './CourseForm';
 import * as courseApi from '../api/courseApi';
 import { toast } from 'react-toastify';
@@ -14,6 +14,14 @@ const ManageCoursePage = (props) => {
     category: ""
   });
 
+  useEffect( () => {
+    const slug = props.match.params.slug; // from the path '/course/:slug'
+    if(slug){
+      courseApi.getCourseBySlug(slug).then( _course => setCourse(_course));
+    }
+  }, [props.match.params.slug])
+
+  
   function handleChange(event) {
     //distructure
     const { target } = event;
@@ -33,7 +41,7 @@ const ManageCoursePage = (props) => {
 
     setErrors(_errors);
 
-    //the form is valid of the errors object has no properties
+    //the form is valid if the errors object has no properties
     return Object.keys(_errors).lenght === 0;
 
   }
@@ -42,11 +50,11 @@ const ManageCoursePage = (props) => {
     //prevent the event sent to the server. Instead handle in client
     event.preventDefault();
 
-    if(!formIsValid()) return;
+    if (!formIsValid()) return;
     //all func in api return a promise
     courseApi.saveCourse(course).then( () => {
       props.history.push("/courses");
-      toast.success('Course Saved!')
+      toast.success('Course Saved!');
     });
 
   }
