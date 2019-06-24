@@ -8,7 +8,7 @@ export function  saveCourse(course) {
   return courseApi.saveCourse(course).then(savedCourse => {
     // dispatcher will notify all stores about this action
     dispatcher.dispatch({
-      //the action
+      //the action payload
       actionType: actionTypes.CREATE_COURSE,
       course: savedCourse
     });
