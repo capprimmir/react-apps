@@ -9,7 +9,9 @@ export function  saveCourse(course) {
     // dispatcher will notify all stores about this action
     dispatcher.dispatch({
       //the action payload
-      actionType: actionTypes.CREATE_COURSE,
+      actionType: course.id 
+      ? actionTypes.UPDATE_COURSE
+      : actionTypes.CREATE_COURSE,
       course: savedCourse
     });
   })
