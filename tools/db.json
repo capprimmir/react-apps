@@ -1,23 +1,9 @@
 {
   "courses": [
     {
-      "id": 1,
-      "title": "Securing React Apps with Auth--2",
-      "slug": "react-auth0-authentication-security",
-      "authorId": 1,
-      "category": "JavaScript"
-    },
-    {
       "id": 2,
       "title": "React: The Big Picture ",
       "slug": "react-big-picture",
-      "authorId": 1,
-      "category": "JavaScript"
-    },
-    {
-      "id": 3,
-      "title": "Creating Reusable React Components",
-      "slug": "react-creating-reusable-components",
       "authorId": 1,
       "category": "JavaScript"
     },
@@ -55,13 +41,6 @@
       "slug": "architecting-applications-dotnet",
       "authorId": 1,
       "category": "Software Architecture"
-    },
-    {
-      "id": 9,
-      "title": "Becoming an Outlier: Reprogramming the Developer Mind",
-      "slug": "career-reboot-for-developer-mind",
-      "authorId": 1,
-      "category": "Career"
     },
     {
       "id": 10,

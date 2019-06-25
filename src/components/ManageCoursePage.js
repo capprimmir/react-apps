@@ -6,6 +6,7 @@ import * as courseActions from '../actions/courseActions';
 
 const ManageCoursePage = (props) => {
   const [errors, setErrors] = useState({}); 
+  const [courses, setCourses] = useState(courseStore.getCourses());
   //hold course data
   const [course, setCourse] = useState ({
     id: null,
@@ -16,11 +17,23 @@ const ManageCoursePage = (props) => {
   });
 
   useEffect( () => {
+    //connect to the flux store
+    courseStore.addChangeListener(onChange);
+
     const slug = props.match.params.slug; // from the path '/course/:slug'
-    if(slug){
+    if(courses.length === 0 ){
+      courseActions.loadCourses();
+    } else if (slug){
       setCourse(courseStore.getCourseBySlug(slug));
     }
-  }, [props.match.params.slug])
+    //unmount 
+    return () => courseStore.removeChangeListener(onChange);
+  }, [courses.length, props.match.params.slug]);
+
+  function onChange() {
+    //request list of courses from store
+    setCourses(courseStore.getCourses());
+  }
 
   
   function handleChange(event) {
